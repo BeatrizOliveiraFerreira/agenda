@@ -9,7 +9,13 @@
 
     <ul style="font-size: 20px">
         {% for evento in eventos %}
-            <li>{{ evento.titulo }} - {{ evento.get_data_evento }}</li>
+
+            <li>
+                    {{ evento.titulo }} - {{ evento.get_data_evento }}
+                    ( <a href="evento/?id={{ evento.id }}">Editar</a>
+                    / <a href="evento/delete/{{ evento.id }}/" onclick="excluir()">Excluir</a> )
+            </li>
+
         {% endfor %}
     </ul>
 
@@ -28,9 +34,30 @@
 
      }
 
+     li a{
+        margin: 2px;
+        padding: 2px 8px 2px 8px;
+        font-size: 15px;
+        background-color: #cabebe;
+        color: black;
+        font-weight: bold;
+
+
+
+     }
+
+
 
 
 </style>
+
+<script>
+    function excluir() {
+        alert("Você tem certeza de que deseja excluir?")
+    }
+</script>
+
+
 {% endblock %}
 
 

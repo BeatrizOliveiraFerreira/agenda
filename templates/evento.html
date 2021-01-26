@@ -5,44 +5,96 @@
 <h2>Evento</h2>
 <form action="submit" method="POST">{% csrf_token %}
     <label>Título: </label>
+    <input type="number" name="id_evento" value="{{ evento.id }}" hidden>
     <br>
-    <input type="text" name="titulo" size="22">
+    <input type="text" name="titulo" size="22" value="{{ evento.titulo }}">
     <br><br>
     <label>Data do Evento: </label>
     <br>
-    <input type="datetime-local" name="data_evento" size="22">
+    <input type="datetime-local" name="data_evento" size="22" value="{{ evento.get_data_input_evento }}">
     <br><br>
     <label>Descrição</label>
     <br>
-    <textarea name="descricao" rows="5" cols="24"></textarea>
+    <textarea name="descricao" rows="5" cols="24">{{ evento.descricao }}</textarea>
     <br><br>
-    <a>
-        <button class="a" type="submit">Salvar</button>
+    <a class="salvar">
+        <button type="submit" class="nomeSalvar">Salvar</button>
     </a>
-    <a href="/">
-        <button type="button">Cancelar</button>
+    <a href="/" class="cancelar">
+        <button type="button" class="nomeCancelar">Cancelar</button>
     </a>
 </form>
 <style>
-    a{
-            font-family: 'Lato', sans-serif;
+    h2{
+        margin-top: 25px;
+        margin-left: 46%;
+        font-family: 'Lato', sans-serif;
+
+
+    }
+    .salvar{
+            font-family: font-family: 'Lato', sans-serif;
             margin-left: 0;
-            padding: 5px 20px 5px 20px;
+            border: none;
+            padding: 7px 20px 7px 20px;
             font-size: 20px;
             color: white;
-
             background-color: rgb(26, 207, 35);
-      }
+            margin-left: 41%;
+
+          }
+
+    .cancelar{
+
+            font-family: font-family: 'Lato', sans-serif;
+            margin-left: -28px;
+            padding: 7px 10px 7px 10px;
+            font-size: 20px;
+            color: white;
+            background-color: rgb(26, 207, 35);
+
+    }
+
+    .nomeSalvar{
+
+            border: none;
+            background-color: rgb(26, 207, 35);
+            color: white;
+            font-size: 20px;
+
+    }
+    .nomeCancelar{
+
+            border: none;
+            background-color: rgb(26, 207, 35);
+            color: white;
+            font-size: 20px;
+
+    }
       label{
 
-            font-family: 'Lato', sans-serif;
-
+            font-family: sans-serif;
+            color: #380B61;
+            font-weight: bold;
+            font-size: 18px
 
       }
       form{
 
             align-items: center;
+      }
 
+      form label{
+            font-family: sans-serif;
+            margin-left: 42%;
+      }
+
+      input{
+            margin-left: 42%;
+      }
+
+      textarea{
+            margin-left: 42%;
       }
 
 </style>
