@@ -8,7 +8,7 @@
 <h1>Login</h1>
     <form action="submit" method="POST"> {% csrf_token %}
         <div align="center">
-            <label>Usuário: </label>
+            <label class="usuario">Usuário: </label>
             <input type="text" name="username">
             <label>Password: </label>
             <input type="password" name="password">
@@ -40,9 +40,20 @@
         background-color: rgb(26, 207, 35);
         border-radius: 30px;
     }
+
+
+
+
     label{
         font-family: 'Lato', sans-serif;
         font-size: 20px;
+    }
+
+    label .usuario {
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+
+
     }
     strong{
         font-family: 'Lato', sans-serif;
